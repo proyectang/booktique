@@ -1,0 +1,46 @@
+*{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+	-box-sizing: border-box;
+
+}
+body {
+	background: #ffff;
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+}
+
+.contenedor{
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden; 
+}
+
+/*-----------------------------------HEADER----------------------------------------------------*/
+
+header{
+	max-height: 200px;
+	background: #ffff;
+}
+
+
+header .menu{
+	margin: 5px 0px;
+	text-align: right;
+}
+
+header .menu a{
+	 margin: 0 10px;
+	 color: #0583F2;
+	 padding-bottom: 9px;
+	 display: inline-block;
+	 text-decoration: none;
+	 font-size: 1em;  
+
+}
+
+header .menu a:hover {
+	color: #0FAEE6;
+
+}
