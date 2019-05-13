@@ -19,15 +19,11 @@ body {
 
 /*-----------------------------------HEADER----------------------------------------------------*/
 
-header{
-	max-height: 200px;
-	background: #ffff;
-}
-
 
 header .menu{
 	margin: 5px 0px;
 	text-align: right;
+
 }
 
 header .menu a{
@@ -44,3 +40,18 @@ header .menu a:hover {
 	color: #0FAEE6;
 
 }
+
+.logo{
+	width: 20%;
+	display: inline-block;
+	position: relative;
+	top: 30px; 
+}
+/*-----------------------------------------------------MAIN---------------------------------------*/
+
+.banner{
+	width: 100%;
+	display: inline-block;
+	position: relative;
+}
+
