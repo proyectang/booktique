@@ -27,6 +27,7 @@ header .menu{
 }
 
 header .menu a{
+	font-weight: bold;
 	 margin: 0 10px;
 	 color: #0583F2;
 	 padding-bottom: 9px;
@@ -40,6 +41,22 @@ header .menu a:hover {
 	color: #0FAEE6;
 
 }
+ .micuenta{
+ 	color: #ffff;
+ 	background:  #0987E6; 
+ 	padding-right: 20px; 
+	padding-left: 20px; 
+	padding-top: 10px;
+	border-radius: 3px;
+
+ }
+ header div nav .micuenta{
+	color: #ffff;
+ }
+ header div nav .micuenta:hover {
+ 	color: #ffff;
+ 	background-color: #0FACE6 ; 
+ }
 
 .logo{
 	width: 20%;
@@ -47,11 +64,129 @@ header .menu a:hover {
 	position: relative;
 	top: 30px; 
 }
+
+/*.buscador{
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	background: #fff;
+	padding:0 10px;
+	padding-bottom: 5px;
+	max-height: 85%;
+	overflow-x: hidden;
+	display: none;
+}*/
 /*-----------------------------------------------------MAIN---------------------------------------*/
 
 .banner{
-	width: 100%;
+
+	margin-top: 0px;
 	display: inline-block;
-	position: relative;
 }
 
+.titulo{
+	color: #0583F2; 
+}
+
+.novedades{
+	padding: 10%;
+	
+}
+/*------------------------------------------------Footer---------------------------------------------*/
+
+footer .contacto {
+	padding: 60px 0;
+	background: #f2f2f2;
+}
+
+footer .contacto .titulo {
+
+	font-size: 34px;
+	line-height: 34px;
+	margin-bottom: 40px;
+	font-weight: bold;
+	color: #3895ea;
+	text-align: center;
+}
+
+footer .contacto .formulario {
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+}
+
+footer .contacto .formulario input[type="text"],
+footer .contacto .formulario input[type="email"],
+footer .contacto .formulario textarea {
+	border:2px solid #cecece;
+	border-radius: 5px;
+	padding: 15px 20px;
+	font-size: 20px;
+	color:#a4a4a4;
+}
+
+footer .contacto .formulario input[type="text"]:focus,
+footer .contacto .formulario input[type="email"]:focus,
+footer .contacto .formulario textarea:focus {
+	border:2px solid #3895ea;
+}
+
+footer .contacto .formulario input[type="text"],
+footer .contacto .formulario input[type="email"] {
+	width: 49%;
+	margin-bottom: 15px;
+}
+
+footer .contacto .formulario textarea {
+	width: 100%;
+	height: 100px;
+	min-width: 100%;
+	max-width: 100%;
+	min-height:100px;
+	max-height: 300px;
+	margin-bottom: 15px;
+}
+
+footer .contacto .formulario .boton {
+	font-weight: bold;
+	margin: auto;
+	background:  #0987E6;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	padding: 15px 40px;
+	cursor: pointer;
+}
+
+footer .contacto .formulario .boton:hover {
+	background:   #0FACE6;
+}
+
+/*--------------------------------------------REDES SOCIALES----------------------------------------------------------------------*/
+
+footer .redes-sociales {
+	background: #1e2b38;
+	padding: 60px 0;
+}
+
+footer .redes-sociales .contenedor {
+	display: flex;
+	justify-content:center;
+}
+
+footer .redes-sociales a {
+	color: #fff;
+	text-align: center;
+	width: 100px;
+	display: block;
+	padding: 15px 0;
+	border-radius: 3px;
+	font-size: 30px;
+	margin: 0 20px;
+}
+
+footer .redes-sociales .twitter:hover {	background: #1da1f2; }
+footer .redes-sociales .facebook:hover { background: #3b5998; }
+footer .redes-sociales .youtube:hover {	background: #cd201f; }
+footer .redes-sociales .github:hover { background: #666666; }
+footer .redes-sociales .instagram:hover { background: #3f729b; }
