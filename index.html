@@ -14,23 +14,51 @@
 	<header>
 		<div class="contenedor">
  		<img class="logo" src="img/logo.png" alt="">
- 		
- 				<input type="search" placeholder="Buscar">
+ 				
  			
-			<nav class="menu">
-				<a href="#">Generos</a>
-                <a href="#">Novedades</a>
-                <a href="#">Contacto</a>
-                <a class ="micuenta" href="#">Mi Cuenta</a>
-                <a href=""><i class="fas fa-shopping-cart"></i></a>
-			</nav>
+				<div class="buscar-caja">
+   					<input type="search" name="" class="buscar-txt" placeholder="Buscar..."/>
+   					<a class="buscar-btn">
+    					<i class="fas fa-search"></i>
+  					</a>
+  				</div>				
+			
+			<div class="divmenu">
+ 			 	<nav class="navegacion">
+					<ul class="menu">
+				 		<li><a href="#">Generos</a>
+					        <ul class="submenu">
+						         <li><a href="#">Arte</a></li>
+						         <li><a href="#">Auto Ayuda</a></li>
+						         <li><a href="#">Comedia</a></li>
+						         <li><a href="#">Historia</a></li>
+						         <li><a href="#">Negocios</a></li>
+						         <li><a href="#">Suspenso</a></li>
+						         <li><a href="#">Tecnología</a></li>
+						         <li><a href="#">Terror</a></li>
+						         <li><a href="#">Romance</a></li>
+					        </ul>
+				 	    </li>
+				 	    <li><a href="#novedades">Novedades</a></li>
+					    <li><a href="#contacto">Contacto</a></li>
+					    <li><a  class="micuenta" href="#">Mi Cuenta</a></li>
+					    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+					</ul>
+		    	</nav>
+			</div>
+
 		</div>
+	
 	</header>
 
+
+
 	<section class="main">
-			<img class="banner"src="img/banner2.png" alt="">
+			<div class="banner">
+				<img src="img/banner2.png" alt="">
+			</div>
 		
-		<div class="novedades">
+		<div name="novedades" id="novedades" class="novedades">
 			<h3>Novedades</h3>
 			<!--Falta-->
 		</div>
@@ -39,7 +67,7 @@
 
 	<footer>
 		<section class="contacto">
-			<div class="contenedor">
+			<div name="contacto" id="contacto" class="contenedor">
 				<h3 class="titulo">Contacto</h3>
 				<form class="formulario" action="#" method="post">
 					<input type="text" placeholder="Nombre:" required>

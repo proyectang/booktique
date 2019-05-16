@@ -17,70 +17,135 @@ body {
 	overflow: hidden; 
 }
 
-/*-----------------------------------HEADER----------------------------------------------------*/
 
 
-header .menu{
-	margin: 5px 0px;
-	text-align: right;
+/*-----------------------------------HEADER---------------------------------------------------------------------------------------*/
+
+.divemenu{
+
+	width: 1000px;
+	margin: 30px auto;
+	background: #fff;
 
 }
 
-header .menu a{
+.navegacion ul{
+	list-style: none;
+	float: right;
+}
+
+.menu > li{
+	position: flex;
+	display: inline-block;
+}
+
+.menu > li >a{
+
+	display: block;
+	text-decoration: none;
+	padding: 0px 10px;
+	color: #0583F2;
 	font-weight: bold;
-	 margin: 0 10px;
-	 color: #0583F2;
-	 padding-bottom: 9px;
-	 display: inline-block;
-	 text-decoration: none;
-	 font-size: 1em;  
+	text-decoration: none;
+}
+
+.menu li a:hover{
+	color: #CE7D35;
+	transition: all .3s;
+}
+
+
+.submenu{
+
+	right: 498px;
+	position: absolute;
+	background: #ffff;
+	width: 12%;
+	visibility: hidden;/*esconde el submenu*/
+	opacity: 0;
+	transition: opacity 1.5s;
+}
+
+.submenu li a{
+	text-align: left;
+	display: block;
+	padding: 12px;
+	color: #0583F2;
+	font-family: 'Open sans';
+	text-decoration: none;
+}
+
+.menu li:hover .submenu{
+	visibility: visible;
+	opacity: 1;
+}
+
+
+
+/*--------------------------------------------------Submenu-------------------------------------------------------------------------*/
+.submenu{
+	position: absolute;
 
 }
 
-header .menu a:hover {
-	color: #0FAEE6;
+.submenu li a{
 
+	text-decoration: none;
 }
- .micuenta{
- 	color: #ffff;
- 	background:  #0987E6; 
- 	padding-right: 20px; 
-	padding-left: 20px; 
-	padding-top: 10px;
-	border-radius: 3px;
 
- }
- header div nav .micuenta{
-	color: #ffff;
- }
- header div nav .micuenta:hover {
- 	color: #ffff;
- 	background-color: #0FACE6 ; 
- }
 
 .logo{
 	width: 20%;
 	display: inline-block;
 	position: relative;
-	top: 30px; 
+	top: 43px; 
 }
 
-/*.buscador{
-	width: 90%;
-	max-width: 1000px;
-	margin: auto;
-	background: #fff;
-	padding:0 10px;
-	padding-bottom: 5px;
-	max-height: 85%;
-	overflow-x: hidden;
-	display: none;
-}*/
-/*-----------------------------------------------------MAIN---------------------------------------*/
+/*-------------------------------------------------------------Buscador---------------------------------------------------------------*/
+
+.buscar-caja {
+ position: absolute;
+ top: 12%;
+ left: 42%;
+ transform: translate(-50%, -50%);
+ background: #ffff;
+ height: 40px;
+ border: #0583F2 solid 2px;
+ border-radius: 40px;
+ padding: 10px;
+}
+
+.buscar-btn {
+ color: #e84118;
+ float: right;
+ width: 20px;
+ height: 20px;
+ border-radius: 50%;
+ background: #ffff;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: #0583F2;
+}
+
+.buscar-txt {
+ border: none;
+ background: none;
+ outline: none;
+ float: left;
+ padding: 0 6px;
+ font-size: 13px;
+ width: 230px;
+ font-weight: bold;
+}﻿
+
+
+/*------------------------------------------MAIN-------------------------------------------------------------------------------------*/
 
 .banner{
 
 	margin-top: 0px;
+
 	display: inline-block;
 }
 
@@ -92,7 +157,7 @@ header .menu a:hover {
 	padding: 10%;
 	
 }
-/*------------------------------------------------Footer---------------------------------------------*/
+/*-------------------------------------------------------Footer----------------------------------------------------------------------*/
 
 footer .contacto {
 	padding: 60px 0;
@@ -183,10 +248,13 @@ footer .redes-sociales a {
 	border-radius: 3px;
 	font-size: 30px;
 	margin: 0 20px;
-}
 
+}
 footer .redes-sociales .twitter:hover {	background: #1da1f2; }
 footer .redes-sociales .facebook:hover { background: #3b5998; }
 footer .redes-sociales .youtube:hover {	background: #cd201f; }
 footer .redes-sociales .github:hover { background: #666666; }
 footer .redes-sociales .instagram:hover { background: #3f729b; }
+
+
+
