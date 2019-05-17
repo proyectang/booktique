@@ -1,0 +1,103 @@
+*{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+	-box-sizing: border-box;
+
+}
+
+.loginbox{
+	max-height: 300px;
+	margin: 0 auto; 
+}
+
+body{
+	font-family: sans-serif;
+	background: url(..//img/login2.jpg);
+	background-repeat: no-repeat; 
+	background-size: cover; 
+	overflow: hidden; 
+}
+
+
+.logo{
+ 	position: absolute;
+	 top: 30%;
+ 	left: 50%;
+ 	transform: translate(-50%, -50%);
+ 	height: 40px;
+ 	padding: 10px;
+
+}
+
+
+.contenedor{
+    background-attachment:fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display:flex;
+    position:absolute;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 500px; 
+}
+
+
+.login-box input{
+    width: 100%;
+	
+    margin-bottom: 20px;
+   
+}
+
+.login-box input[type="text"], input[type="password"], input[type="email"]
+{
+    border: none;
+  	border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    color: #ffff;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+
+
+.login-box input[type="submit"]
+{
+	
+	border: none;
+    outline: none;
+    height: 40px;
+    background-color:#0583F2;
+    color:rgba(255, 255, 255); 
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+
+.login-box input[type="submit"]:hover
+{
+
+    cursor: pointer;
+    background-color: rgba(36, 91, 130, .8) ;
+    color: #fff;
+}
+
+ .registrarse a{
+	
+	 position: absolute;
+	top:105%;
+ 	left: 50%;
+ 	transform: translate(-50%, -50%);
+	text-align: center;
+	text-decoration: none;
+	color: #ffff;
+}
+
+.registrarse a:hover{
+
+	color: #0583F2;
+
+}
