@@ -5,18 +5,18 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700" rel="stylesheet">
 	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
 	<link rel="stylesheet" href="css/stilos.css ">
 	<link rel="shorcut icon" type="image/x-icon" href="img/favicon.ico">
 	<script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+	
 	<title>Booktique</title>
 </head>
 <body>
 	<header>
 		<div class="contenedor">
  		<img class="logo" src="img/logo.png" alt="">
- 				
- 			
-				<div class="buscar-caja">
+ 				<div class="buscar-caja">
    					<input type="search" name="" class="buscar-txt" placeholder="Buscar..."/>
    					<a class="buscar-btn">
     					<i class="fas fa-search"></i>
@@ -39,7 +39,7 @@
 						         <li><a href="#">Romance</a></li>
 					        </ul>
 				 	    </li>
-				 	    <li><a href="#novedades">Más vendidos</a></li>
+				 	    <li><a href="#novedades">Novedades</a></li>
 					    <li><a href="#contacto">Contacto</a></li>
 					    <li><a  class="micuenta" href="#">Mi Cuenta</a></li>
 					    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
@@ -48,7 +48,6 @@
 			</div>
 
 		</div>
-	
 	</header>
 
 
@@ -59,10 +58,52 @@
 			</div>
 		
 		<div name="novedades" id="novedades" class="novedades">
-			<h3>Carrusel de los mas vendidos</h3>
-			<!--Falta-->
-		</div>
-	</section>
+		<h3 class="lmv">Lo más vendido</h3>	
+		<!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+
+
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+		     
+</div>
+</section>
 
 
 	<footer>
@@ -86,7 +127,6 @@
 
 			</div>
 		</section>
-		
 	</footer>
 </body>
 </html>
