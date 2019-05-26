@@ -12,26 +12,6 @@ CREATE TABLE usuario(
 	PRIMARY KEY(usua_idusuario)
 );
 
-CREATE TABLE cliente(
-	clie_idcliente SERIAL NOT NULL,
-	clie_nombre VARCHAR(40) NOT NULL,
-	clie_apellidopaterno VARCHAR(40) NOT NULL,
-	clie_apellidomaterno VARCHAR(40) NOT NULL,
-	clie_fechanacimiento DATE NOT NULL,
-	clie_telefono NUMERIC(10,0) NOT NULL
-	clie_correo VARCHAR(40) NOT NULL,
-	clie_contrasenia VARCHAR(40) NOT NULL,
-	clie_estatus VARCHAR(1) NOT NULL,
-	clie_iddireccion INTEGER NOT NULL,
-
-	CONSTRAINT pkcliente
-	PRIMARY KEY (clie_idcliente),
-
-	CONSTRAINT fkclientedireccion
-	FOREIGN KEY(clie_iddireccion)
-	REFERENCES direccion(dire_iddireccion)
-);
-
 CREATE TABLE direccion(
 	dire_iddireccion SERIAL NOT NULL,
 	dire_estado VARCHAR(40) NOT NULL,
@@ -45,22 +25,44 @@ CREATE TABLE direccion(
 	PRIMARY KEY(dire_iddireccion)
 );
 
+CREATE TABLE cliente(
+	clie_idcliente SERIAL NOT NULL,
+	clie_nombre VARCHAR(40) NOT NULL,
+	clie_apellidopaterno VARCHAR(40) NOT NULL,
+	clie_apellidomaterno VARCHAR(40) NOT NULL,
+	clie_fechanacimiento DATE NOT NULL,
+	clie_telefono NUMERIC(10,0) NOT NULL,
+	clie_correo VARCHAR(40) NOT NULL,
+	clie_contrasenia VARCHAR(40) NOT NULL,
+	clie_estatus VARCHAR(1) NOT NULL,
+	clie_iddireccion INTEGER NOT NULL,
+
+	CONSTRAINT pkcliente
+	PRIMARY KEY (clie_idcliente),
+
+	CONSTRAINT fkclientedireccion
+	FOREIGN KEY(clie_iddireccion)
+	REFERENCES direccion(dire_iddireccion)
+);
+
+
 CREATE TABLE genero(
 	gene_idgenero SERIAL NOT NULL,
 	gene_nombre VARCHAR(40) NOT NULL,
 
-	PRIMARY KEY pkgenero
-
+	CONSTRAINT pkgenero
+	PRIMARY KEY (gene_idgenero)
 );
 
 CREATE TABLE libro(
 	libr_idlibro SERIAL NOT NULL,
 	libr_nombre VARCHAR(40) NOT NULL,
 	libr_autor VARCHAR(40) NOT NULL,
+	libr_imagen VARCHAR(80) NOT NULL,
 	libr_descripcion VARCHAR(40) NOT NULL,
 	libr_precio NUMERIC(6,2) NOT NULL,
 	libr_estatus CHAR(1) NOT NULL,
-	libr_valoracion CHAR(1) NULL
+	libr_valoracion CHAR(1) NULL,
 	libr_unidades NUMERIC(4,0) NOT NULL,
 	libr_idgenero INTEGER NOT NULL,
 
@@ -134,3 +136,12 @@ CREATE TABLE pagoXcliente(
 	FOREIGN KEY (pacl_idpago)
 	REFERENCES pago(pago_idpago)
 );
+
+
+--////////////////INSERTS
+INSERT INTO genero (gene_nombre) VALUES('Ficción');																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																														INSERT INTO genero VALUES("Ficción");
+INSERT INTO genero (gene_nombre) VALUES('Poesía');
+INSERT INTO genero (gene_nombre) VALUES('Científicos');
+INSERT INTO genero (gene_nombre) VALUES('Thriller');
+INSERT INTO genero (gene_nombre) VALUES('Historia');
+INSERT INTO genero (gene_nombre) VALUES('Negocios y finanzas');
