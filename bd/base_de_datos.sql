@@ -6,6 +6,7 @@ CREATE TABLE usuario(
 	usua_nombre VARCHAR(40) NOT NULL,
 	usua_contrasenia VARCHAR(40) NOT NULL,
 	usua_estatus VARCHAR(1) NOT NULL,
+	usua_tipo VARCHAR(1) NOT NULL,
 
 	CONSTRAINT pkusuario
 	PRIMARY KEY(usua_idusuario)
@@ -19,6 +20,7 @@ CREATE TABLE cliente(
 	clie_fechanacimiento DATE NOT NULL,
 	clie_telefono NUMERIC(10,0) NOT NULL
 	clie_correo VARCHAR(40) NOT NULL,
+	clie_contrasenia VARCHAR(40) NOT NULL,
 	clie_estatus VARCHAR(1) NOT NULL,
 	clie_iddireccion INTEGER NOT NULL,
 
