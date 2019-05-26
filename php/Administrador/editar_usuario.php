@@ -15,7 +15,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
 	
-	<title>Booktique - usuario</title>
+	<title>Booktique - editar usuario</title>
 </head>
 <body>
 	<header>
@@ -28,10 +28,14 @@
   					</a>
   				</div>
   				<?php
+					$id_usuario = $_POST["usua_idusuario"];
+
 					require_once('../../php/conexionbd.php');
-					$query = "SELECT usua_idusuario, usua_nombre, usua_estatus, usua_tipo FROM usuario ORDER BY 1 ASC";
+					$query = "SELECT usua_idusuario, usua_nombre, usua_contrasenia, usua_estatus, usua_tipo FROM usuario WHERE usua_idusuario = $id_usuario";
 					$result = pg_query($conn, $query) or die (pg_last_error());
+					$row = pg_fetch_row($result);
 					pg_close($conn);
+
 		     	?>				
 			
 			<div class="divmenu">
@@ -66,52 +70,60 @@
 		</div>
 	</header><br>
 
-	<div class="col-md-10 offset-md-1">
-		<h4 class="display-4">Usuarios</h4>
+	<div class="col-md-6 offset-md-3">
+		<h4 class="page-header">Editar usuario</h4>
 		<hr>
 	</div>
-
-	<section class="main">
-		<div class="col-md-10 offset-md-1">
-			<div class="table-responsive">
-				<table class="table table-hover">
-					<thead class="thead-light  table-active text-center">
-						<th>Nombre de usuario</th>
-						<th>Estatus</th>
-						<th>Tipo de usuario</th>
-						<th>Opciones</th>
-					</thead>
-					<tbody>
-						<?php 
-							while ($row = pg_fetch_row($result)) { 
-								echo "<tr class='text-center'>";
-								echo "<td>$row[1]</td>";
-								echo "<td>$row[2]</td>";
-								echo "<td>$row[3]</td>";
-								echo "<td><form action='../../php/Administrador/editar_usuario.php' method='post'>
-												<input type='hidden' name='usua_idusuario' value='$row[0]'>
-												<button type='submit' class='btn btn-outline-primary'><span class='far fa-edit'></span></button>
-											</form>
-										</td>";
-								echo "</tr>";	
-							}
-						?>
-						
-					</tbody>
-				</table>
+	
+	<div class="col-md-6 offset-md-3">
+		<form action="actualizar_usuario.php" method="post">
+			<div class="form-group">
+				<label for="">Usuario:</label>
+				<input type="text" name="usua_nombre" placeholder="Usuario:" required class="form-control" value="<?php echo $row[1]; ?>">
 			</div>
-		</div>
-	</section>
-
-	<!--<footer>
-		<section class="redes-sociales">
-			<div class="contenedor">
-				<a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-				<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-
+			<div class="form-group">
+				<label for="">Contraseña:</label>
+				<input type="password" name="usua_contrasenia" placeholder="Contrasenia:" required class="form-control" value="<?php echo $row[2]; ?>">
 			</div>
-		</section>
-	</footer>-->
+			<div class="form-group">
+				<label for="">Estatus:</label>
+				<select name="usua_estatus" id="" class="form-control">
+					<?php 
+						if ($row[3] == 'A'){
+							echo "<option value='A' selected>Activo</option>";
+							echo "<option value='I'>Inactivo</option>";
+						} else {
+							echo "<option value='A'>Activo</option>";
+							echo "<option value='I' selected>Inactivo</option>";
+						}
+
+					?>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="">Tipo:</label>
+				<select name="usua_tipo" id="" class="form-control">
+					<?php 
+						if ($row[4] == 'A'){
+							echo "<option value='A' selected>Administrador</option>";
+							echo "<option value='E'>Empleado</option>";
+						} else {
+							echo "<option value='A' >Administrador</option>";
+							echo "<option value='E' selected>Empleado</option>";
+						}
+
+					?>
+				</select>
+			</div>
+			<input type="hidden" name="usua_idusuario" value="<?php echo $row[0]; ?>">
+			<div class="text-center">
+				<button type="submit" name="enviar" class="btn btn-outline-primary"> Actualizar																																																																																																																 usuario</button>	
+			</div>
+		</form><br>
+	</div>
+	
+	
+	</div>
+	</div>
 </body>
 </html>
