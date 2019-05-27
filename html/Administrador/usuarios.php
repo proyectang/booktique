@@ -51,27 +51,27 @@
 				 	    </li>
 					</ul>
 					<ul class="menu">
-				 		<li><a href="#">Usuarios</a>
-					        <ul class="submenu">
+				 		<li><a href="usuario.php">Usuarios</a>
+					        <!--<ul class="submenu">
 						         <li><a href="registro_usuario.php">Registrar</a></li>
 						         <li><a href="usuarios.php">Buscar</a></li>
-					        </ul>
+					        </ul>-->
 				 	    </li>
 					</ul>
 					<ul class="menu">
-				 		<li><a href="#">Libros</a>
-					        <ul class="submenu">
+				 		<li><a href="libros.php">Libros</a>
+					        <!--<ul class="submenu">
 						         <li><a href="#">Registrar</a></li>
 						         <li><a href="#">Buscar</a></li>
-					        </ul>
+					        </ul>-->
 				 	    </li>
 					</ul>
 					<ul class="menu">
 				 		<li><a href="#">Ventas</a>
-					        <ul class="submenu">
+					        <!--<ul class="submenu">
 						         <li><a href="#">Registrar</a></li>
 						         <li><a href="#">Buscar</a></li>
-					        </ul>
+					        </ul>-->
 				 	    </li>
 					</ul>
 		    	</nav>
@@ -80,9 +80,15 @@
 		</div>
 	</header><br>
 
-	<div class="col-md-10 offset-md-1">
-		<h4 class="display-4">Usuarios</h4>
-		<hr>
+	
+	<div class="row">
+		<div class="col-md-8 offset-md-1">
+			<p class="h1"><span class="fas fa-users"></span> Usuarios</p>
+			<hr>
+		</div>
+		<div class="col-md-2">
+			<a href="registro_usuario.php" class="btn btn-outline-info"><span class="fas fa-plus"></span> Registrar</a>
+		</div>	
 	</div>
 
 	<section class="main">

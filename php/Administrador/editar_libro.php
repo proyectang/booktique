@@ -15,7 +15,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
 	
-	<title>Booktique - usuario</title>
+	<title>Booktique</title>
 </head>
 <body>
 	<header>
@@ -28,22 +28,31 @@
   					</a>
   				</div>
   				<?php
-					session_start();
+
+  					session_start();
 
 					if($_SESSION['sesion_iniciada'] != true){
 						session_destroy();
 						header('Location: http://www.booktique.com.mx/html/Administrador/login.html');
 					}
-  						
+
+					$id_libro = $_POST['libr_idlibro'];
+					
 					require_once('../../php/conexionbd.php');
-					$query = "SELECT libr_idlibro, libr_nombre, libr_autor, libr_imagen, libr_precio, libr_estatus, libr_unidades FROM libro ORDER BY 1 ASC";
+					$query = "SELECT libr_idlibro, libr_nombre, libr_autor, libr_imagen, libr_descripcion, libr_precio, libr_estatus, libr_valoracion, libr_unidades, libr_idgenero FROM libro WHERE libr_idlibro = $id_libro";
 					$result = pg_query($conn, $query) or die (pg_last_error());
+					$libro = pg_fetch_row($result);
+
+					$query = "SELECT gene_idgenero, gene_nombre FROM genero";
+					$categorias = pg_query($conn, $query) or die (pg_last_error());
+
 					pg_close($conn);
+
 		     	?>				
 			
 			<div class="divmenu">
  			 	<nav class="navegacion">
- 			 		<ul class="menu">
+					<ul class="menu">
 				 		<li><a href="#"><?php session_start(); echo "<span class='far fa-user'></span> ". $_SESSION['usuario']; ?></a>
 					        <ul class="submenu">
 						         <li><a href="../../php/cerrar_session.php">Salir</a></li>
@@ -64,70 +73,68 @@
 
 		</div>
 	</header><br>
-	
-	<div class="row">
-		<div class="col-md-8 offset-md-1">
-			<p class="h1"><span class="fas fa-book"></span> Libros</p>
-			<hr>
-		</div>
-		<div class="col-md-2">
-			<a href="registro_libro.php" class="btn btn-outline-info"><span class="fas fa-plus"></span> Registrar</a>
-		</div>	
+
+	<div class="col-md-6 offset-md-3">
+		<h4 class="page-header">Editar usuario</h4>
+		<hr>
 	</div>
 	
-
-	<section class="main">
-		<div class="col-md-10 offset-md-1">
-			<div class="table-responsive">
-				<table class="table table-hover">
-					<thead class="thead-light  table-active text-center">
-						<th>Libro</th>
-						<th>Autor</th>
-						<th>Imagen</th>
-						<th>Precio</th>
-						<th>Estatus</th>
-						<th>Unidades</th>
-						<th>Opciones</th>
-
-					</thead>
-					<tbody>
-						<?php 
-							while ($row = pg_fetch_row($result)) { 
-								echo "<tr class='text-center'>";
-								echo "<td>$row[1]</td>";
-								echo "<td>$row[2]</td>";
-								echo "<td><img src='$row[3]' width='50px' class='rounded'></td>";
-								echo "<td>$ $row[4]</td>";
-								if($row[5] == 'A'){
-									echo "<td>Agotado</td>";
-								} else {
-									echo "<td>Disponible</td>";
-								}
-								echo "<td>$row[6]</td>";
-								echo "<td><form action='../../php/Administrador/editar_libro.php' method='post'>
-												<input type='hidden' name='libr_idlibro' value='$row[0]'>
-												<button type='submit' class='btn btn-outline-primary'><span class='far fa-edit'></span></button>
-											</form>
-										</td>";
-								echo "</tr>";	
-							}
-						?>
-						
-					</tbody>
-				</table>
+	<div class="col-md-6 offset-md-3">
+		<form action="../../php/Administrador/registrar_usuario.php" method="post">
+			<div class="form-group">
+				<label for="">Nombre:</label>
+				<input type="text" name="libr_nombre" placeholder="Nombre:" required class="form-control" value="<?php echo $libro[1]; ?>">
 			</div>
-		</div>
-	</section>
-
-	<!--<footer>
-		<section class="redes-sociales">
-			<div class="contenedor">
-				<a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-				<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-
+			<div class="form-group">
+				<label for="">Autor:</label>
+				<input type="text" name="libr_autor" placeholder="Autor:" required class="form-control" value="<?php echo $libro[2]; ?>">
 			</div>
-		</section>
-	</footer>-->
+			<div class="form-group">
+				<label for="">Descripción:</label>
+				<input type="text" name="libr_descripcion" placeholder="Descripción:" required class="form-control" value="<?php echo $libro[4]; ?>">
+			</div>
+			<div class="form-group">
+				<label for="">Precio:</label>
+				<input type="number" name="libr_precio" placeholder="Precio:" required class="form-control" value="<?php echo $libro[5]; ?>">
+			</div>
+			<div class="form-group">
+				<label for="">Estatus:</label>
+				<select name="libr_estatus" id="" class="form-control">
+					<option value="A">Agotado</option>
+					<option value="D">Disponible</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="">Valoración:</label>
+				<input type="text" name="libr_valoracion" placeholder="Valoración:" required class="form-control" value="<?php echo $libro[7]; ?>">
+			</div>
+			<div class="form-group">
+				<label for="">Unidades:</label>
+				<input type="number" name="libr_unidades" placeholder="Unidades:" required class="form-control" value="<?php echo $libro[1]; ?>">
+			</div>
+			<div class="form-group">
+				<label for="">Género:</label>
+				<select name="libr_idgenero" id="" class="form-control">
+					<?php 
+						while ($row = pg_fetch_row($categorias)) { 
+
+							echo "<option value='$row[0]'> $row[1] </option>";	
+						}
+					?>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="">Selecciona una imagen:</label>
+				<input type="file" name="libr_imagen" required>
+			</div>
+			<div class="text-center">
+				<button type="submit" name="enviar" class="btn btn-outline-primary"> Registrar usuario</button>	
+			</div>
+		</form><br>
+	</div>
+	
+	
+	</div>
+	</div>
 </body>
 </html>

@@ -37,28 +37,20 @@
 			<div class="divmenu">
  			 	<nav class="navegacion">
 					<ul class="menu">
-				 		<li><a href="#">Usuarios</a>
+				 		<li><a href="#"><?php session_start(); echo "<span class='far fa-user'></span> ". $_SESSION['usuario']; ?></a>
 					        <ul class="submenu">
-						         <li><a href="registro_usuario.php">Registrar</a></li>
-						         <li><a href="usuarios.php">Buscar</a></li>
+						         <li><a href="../../php/cerrar_session.php">Salir</a></li>
 					        </ul>
 				 	    </li>
 					</ul>
 					<ul class="menu">
-				 		<li><a href="#">Libros</a>
-					        <ul class="submenu">
-						         <li><a href="#">Registrar</a></li>
-						         <li><a href="#">Buscar</a></li>
-					        </ul>
-				 	    </li>
+				 		<li><a href="usuarios.php">Usuarios</a></li>
 					</ul>
 					<ul class="menu">
-				 		<li><a href="#">Ventas</a>
-					        <ul class="submenu">
-						         <li><a href="#">Registrar</a></li>
-						         <li><a href="#">Buscar</a></li>
-					        </ul>
-				 	    </li>
+				 		<li><a href="libros.php">Libros</a></li>
+					</ul>
+					<ul class="menu">
+				 		<li><a href="#">Ventas</a></li>
 					</ul>
 		    	</nav>
 			</div>
