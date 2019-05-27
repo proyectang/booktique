@@ -28,6 +28,13 @@
   					</a>
   				</div>
   				<?php
+					session_start();
+
+					if($_SESSION['sesion_iniciada'] != true){
+						session_destroy();
+						header('Location: http://www.booktique.com.mx/html/Administrador/login.html');
+					}
+
 					require_once('../../php/conexionbd.php');
 					$query = "SELECT usua_idusuario, usua_nombre, usua_estatus, usua_tipo FROM usuario ORDER BY 1 ASC";
 					$result = pg_query($conn, $query) or die (pg_last_error());
@@ -36,6 +43,13 @@
 			
 			<div class="divmenu">
  			 	<nav class="navegacion">
+ 			 		<ul class="menu">
+				 		<li><a href="#"><?php session_start(); echo "<span class='far fa-user'></span> ". $_SESSION['usuario']; ?></a>
+					        <ul class="submenu">
+						         <li><a href="../../php/cerrar_session.php">Salir</a></li>
+					        </ul>
+				 	    </li>
+					</ul>
 					<ul class="menu">
 				 		<li><a href="#">Usuarios</a>
 					        <ul class="submenu">
@@ -86,8 +100,16 @@
 							while ($row = pg_fetch_row($result)) { 
 								echo "<tr class='text-center'>";
 								echo "<td>$row[1]</td>";
-								echo "<td>$row[2]</td>";
-								echo "<td>$row[3]</td>";
+								if($row[2] == 'I'){
+									echo "<td>Inactivo</td>";
+								} else {
+									echo "<td>Activo</td>";
+								}
+								if($row[3] == 'A'){
+									echo "<td>Administrador</td>";
+								} else {
+									echo "<td>Empleado</td>";
+								}
 								echo "<td><form action='../../php/Administrador/editar_usuario.php' method='post'>
 												<input type='hidden' name='usua_idusuario' value='$row[0]'>
 												<button type='submit' class='btn btn-outline-primary'><span class='far fa-edit'></span></button>
