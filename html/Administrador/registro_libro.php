@@ -67,11 +67,18 @@
 	</header><br>
 
 	<div class="col-md-6 offset-md-3">
-		<h4 class="page-header">Registrar usuario</h4>
+		<h4 class="page-header">Registrar libro</h4>
 		<hr>
 	</div>
 
      	<?php
+
+     			session_start();
+
+				if($_SESSION['sesion_iniciada'] != true){
+					session_destroy();
+					header('Location: http://www.booktique.com.mx/html/Administrador/login.html');
+				}
 			require_once('../../php/conexionbd.php');
 			$query = "SELECT gene_idgenero, gene_nombre FROM genero";
 			$result = pg_query($conn, $query) or die (pg_last_error());
@@ -81,8 +88,8 @@
 
      	?>
 
-	<div class="col-md-8 offset-md-2">
-		<form action="../../php/Administrador/registrar_libro.php" method="post" class="form">
+	<div class="col-md-6 offset-md-3">
+		<form action="../../php/Administrador/registrar_libro.php" method="post" class="form" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="">Nombre:</label>
 				<input type="text" name="libr_nombre" placeholder="Nombre:" required class="form-control">
@@ -96,7 +103,7 @@
 				<input type="text" name="libr_descripcion" placeholder="Descripción:" required class="form-control">
 			</div>
 			<div class="form-group">
-				<label for="">Nombre:</label>
+				<label for="">Precio:</label>
 				<input type="number" name="libr_precio" placeholder="Precio:" required class="form-control">
 			</div>
 			<div class="form-group">
@@ -127,7 +134,7 @@
 			</div>
 			<div class="form-group">
 				<label for="">Selecciona una imagen:</label>
-				<input type="file" name="libr_imagen" required class="form-control">
+				<input type="file" name="libr_imagen" required>
 			</div>
 			<div class="text-center">
 				<button type="submit" name="enviar" class="btn btn-outline-primary">Registrar libro</button>

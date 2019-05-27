@@ -28,6 +28,14 @@
   					</a>
   				</div>
   				<?php
+
+  					session_start();
+
+					if($_SESSION['sesion_iniciada'] != true){
+						session_destroy();
+						header('Location: http://www.booktique.com.mx/html/Administrador/login.html');
+					}
+					
 					require_once('../../php/conexionbd.php');
 					$query = "SELECT usua_idusuario, usua_nombre, usua_estatus, usua_tipo FROM usuario";
 					$result = pg_query($conn, $query) or die (pg_last_error());

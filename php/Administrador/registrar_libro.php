@@ -13,16 +13,21 @@
 	$libr_idgenero = $_POST["libr_idgenero"];
 
 	$dir_subida = '/var/www/booktique/img/libros/';
-	$libr_imagen = $dir_subida . basename($_FILES['libr_imagen']['name']);
+	$libr_imagen = $dir_subida.basename($_FILES["libr_imagen"]["name"]);
+	$temp = $_FILES["libr_imagen"]["tmp_name"];
 
-	echo '<pre>';
-	if (move_uploaded_file($_FILES['libr_imagen']['tmp_name'], $libr_imagen)) {
+	$libr_insert = 'http://www.booktique.com.mx/img/libros/'.basename($_FILES["libr_imagen"]["name"]);
 
-	    $query = "INSERT INTO libro (libr_nombre, libr_autor, libr_imagen, libr_descripcion, libr_precio, libr_estatus, libr_valoracion, libr_unidades, libr_idgenero) VALUES ('$libr_nombre', '$libr_autor', '$libr_imagen', '$libr_descripcion', $libr_precio, '$libr_estatus', '$libr_valoracion', $libr_unidades, $libr_idgenero)";
+	$comp = move_uploaded_file($temp, $libr_imagen);
+
+	if ($comp) {
+
+	    $query = "INSERT INTO libro (libr_nombre, libr_autor, libr_imagen, libr_descripcion, libr_precio, libr_estatus, libr_valoracion, libr_unidades, libr_idgenero) VALUES ('$libr_nombre', '$libr_autor', '$libr_insert', '$libr_descripcion', $libr_precio, '$libr_estatus', '$libr_valoracion', $libr_unidades, $libr_idgenero)";
 		$result = pg_query($conn, $query) or die (pg_last_error());
 		pg_close($conn);
 
 		if($result){
+
 			header('Location: http://www.booktique.com.mx/html/Administrador/libros.php');
 		}
 

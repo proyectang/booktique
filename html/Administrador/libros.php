@@ -30,13 +30,13 @@
   				<?php
 					session_start();
 
-					if($_SESSION['session_iniciada'] <>true){
+					if($_SESSION['sesion_iniciada'] != true){
 						session_destroy();
 						header('Location: http://www.booktique.com.mx/html/Administrador/login.html');
 					}
   						
 					require_once('../../php/conexionbd.php');
-					$query = "SELECT usua_idusuario, usua_nombre, usua_estatus, usua_tipo FROM usuario ORDER BY 1 ASC";
+					$query = "SELECT libr_idlibro, libr_nombre, libr_autor, libr_imagen, libr_precio, libr_estatus, libr_unidades FROM libro ORDER BY 1 ASC";
 					$result = pg_query($conn, $query) or die (pg_last_error());
 					pg_close($conn);
 		     	?>				
@@ -61,8 +61,8 @@
 					<ul class="menu">
 				 		<li><a href="#">Libros</a>
 					        <ul class="submenu">
-						         <li><a href="#">Registrar</a></li>
-						         <li><a href="#">Buscar</a></li>
+						         <li><a href="registro_libro.php">Registrar</a></li>
+						         <li><a href="libros.php">Buscar</a></li>
 					        </ul>
 				 	    </li>
 					</ul>
@@ -81,7 +81,7 @@
 	</header><br>
 
 	<div class="col-md-10 offset-md-1">
-		<h4 class="display-4">Usuarios</h4>
+		<h4 class="display-4">Libros</h4>
 		<hr>
 	</div>
 
@@ -90,28 +90,31 @@
 			<div class="table-responsive">
 				<table class="table table-hover">
 					<thead class="thead-light  table-active text-center">
-						<th>Nombre de usuario</th>
+						<th>Libro</th>
+						<th>Autor</th>
+						<th>Imagen</th>
+						<th>Precio</th>
 						<th>Estatus</th>
-						<th>Tipo de usuario</th>
+						<th>Unidades</th>
 						<th>Opciones</th>
+
 					</thead>
 					<tbody>
 						<?php 
 							while ($row = pg_fetch_row($result)) { 
 								echo "<tr class='text-center'>";
 								echo "<td>$row[1]</td>";
-								if($row[2] == 'I'){
-									echo "<td>Inactivo</td>";
+								echo "<td>$row[2]</td>";
+								echo "<td><img src='$row[3]' width='50px' class='rounded'></td>";
+								echo "<td>$row[4]</td>";
+								if($row[5] == 'A'){
+									echo "<td>Agotado</td>";
 								} else {
-									echo "<td>Activo</td>";
+									echo "<td>Disponible</td>";
 								}
-								if($row[3] == 'A'){
-									echo "<td>Administrador</td>";
-								} else {
-									echo "<td>Empleado</td>";
-								}
-								echo "<td><form action='../../php/Administrador/editar_usuario.php' method='post'>
-												<input type='hidden' name='usua_idusuario' value='$row[0]'>
+								echo "<td>$row[6]</td>";
+								echo "<td><form action='../../php/Administrador/editar_libro.php' method='post'>
+												<input type='hidden' name='libr_idlibro' value='$row[0]'>
 												<button type='submit' class='btn btn-outline-primary'><span class='far fa-edit'></span></button>
 											</form>
 										</td>";
