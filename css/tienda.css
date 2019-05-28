@@ -1,0 +1,248 @@
+*{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+	-box-sizing: border-box;
+
+}
+body {
+	background: #ffff;
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	overflow-x: hidden;
+}
+
+.contenedor{
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden; 
+}
+
+
+
+
+/*-----------------------------------HEADER---------------------------------------------------------------------------------------*/
+
+.divemenu{
+
+	width: 1000px;
+	margin: 30px auto;
+	background: #fff;
+
+}
+
+.navegacion ul{
+	list-style: none;
+	float: right;
+}
+
+.menu > li{
+	position: flex;
+	display: inline-block;
+}
+
+.menu > li >a{
+
+	display: block;
+	text-decoration: none;
+	padding: 0px 10px;
+	color: #0583F2;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.menu li a:hover{
+	color: #CE7D35;
+	transition: all .3s;
+}
+
+
+.submenu{
+
+	right: 498px;
+	position: absolute;
+	background: #ffff;
+	width: 12%;
+	visibility: hidden;/*esconde el submenu*/
+	opacity: 0;
+	transition: opacity 1.5s;
+}
+
+.submenu li a{
+	text-align: left;
+	display: block;
+	padding: 12px;
+	color: #0583F2;
+	font-family: 'Open sans';
+	text-decoration: none;
+}
+
+.menu li:hover .submenu{
+	visibility: visible;
+	opacity: 1;
+}
+
+
+
+/*--------------------------------------------------Submenu-------------------------------------------------------------------------*/
+.submenu{
+	position: absolute;
+
+}
+
+.submenu li a{
+
+	text-decoration: none;
+}
+
+
+.logo{
+	width: 20%;
+	display: inline-block;
+	position: relative;
+	top: 43px; 
+}
+
+/*-------------------------------------------------------------Buscador---------------------------------------------------------------*/
+
+.buscar-caja {
+ position: absolute;
+ top: 12%;
+ left: 42%;
+ transform: translate(-50%, -50%);
+ background: #ffff;
+ height: 40px;
+ border: #0583F2 solid 2px;
+ border-radius: 40px;
+ padding: 10px;
+}
+
+.buscar-btn {
+ color: #e84118;
+ float: right;
+ width: 20px;
+ height: 20px;
+ border-radius: 50%;
+ background: #ffff;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: #0583F2;
+}
+
+.buscar-txt {
+ border: none;
+ background: none;
+ outline: none;
+ float: left;
+ padding: 0 6px;
+ font-size: 13px;
+ width: 230px;
+ font-weight: bold;
+}﻿
+
+/*--------------------------------------------main-------------------------------------------------------*/
+
+.main .libro {
+	background: #f2f2f2;
+	padding: 60px 0;
+}
+
+.main .libro .contenedor {
+	overflow: hidden;
+}
+
+.main .libro .genero {
+	font-size: 34px;
+	line-height: 34px;
+	margin-bottom: 40px;
+	font-weight: 300;
+	color: #323068;
+	text-align: center;
+}
+
+.main .libro .contenedor-libros {
+	display: flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:space-between;
+}
+
+.main .libro .contenedor-libros .indlibro{
+	width: 23%;
+	margin-bottom: 40px;
+}
+
+.main .libro .contenedor-libros .indlibro .thumb {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.main .libro .contenedor-libros .indlibro .thumb img {
+	width: 100%;
+	vertical-align: top;
+	border-radius: 3px;
+}
+
+.main libros .contenedor-libros .indlibro .descripcion {
+	text-align: center;
+}
+
+.main .libro .contenedor-libros .indlibro .descripcion .nombre {
+	font-weight: 700;
+	color: #3895ea;
+	margin-bottom: 10px;
+}
+
+.main .libro .contenedor-libros .indlibro .descripcion .categoria {
+	font-size: 14px;
+	color:#636363;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------------Redes sociales-------------------------------------------------------*/
+
+footer .contacto {
+	padding: 60px 0;
+	background: #f2f2f2;
+}
+
+footer .redes-sociales {
+	background: #1e2b38;
+	padding: 60px 0;
+}
+
+footer .redes-sociales .contenedor {
+	display: flex;
+	justify-content:center;
+}
+
+footer .redes-sociales a {
+	color: #fff;
+	text-align: center;
+	width: 100px;
+	display: block;
+	padding: 15px 0;
+	border-radius: 3px;
+	font-size: 30px;
+	margin: 0 20px;
+
+}
+footer .redes-sociales .twitter:hover {	background: #1da1f2; }
+footer .redes-sociales .facebook:hover { background: #3b5998; }
+footer .redes-sociales .youtube:hover {	background: #cd201f; }
+footer .redes-sociales .github:hover { background: #666666; }
+footer .redes-sociales .instagram:hover { background: #3f729b; }
+
