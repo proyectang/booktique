@@ -80,7 +80,7 @@
 	</div>
 	
 	<div class="col-md-6 offset-md-3">
-		<form action="../../php/Administrador/registrar_usuario.php" method="post">
+		<form action="actualizar_libro.php" method="post">
 			<div class="form-group">
 				<label for="">Nombre:</label>
 				<input type="text" name="libr_nombre" placeholder="Nombre:" required class="form-control" value="<?php echo $libro[1]; ?>">
@@ -100,8 +100,16 @@
 			<div class="form-group">
 				<label for="">Estatus:</label>
 				<select name="libr_estatus" id="" class="form-control">
-					<option value="A">Agotado</option>
-					<option value="D">Disponible</option>
+					<?php 
+						if ($row[6] == 'A'){
+							echo "<option value='A' selected>Agotado</option>";
+							echo "<option value='D'>Disponible</option>";
+						} else {
+							echo "<option value='A'>Agotado</option>";
+							echo "<option value='D' selected>Disponible</option>";
+						}
+
+					?>
 				</select>
 			</div>
 			<div class="form-group">
@@ -110,25 +118,32 @@
 			</div>
 			<div class="form-group">
 				<label for="">Unidades:</label>
-				<input type="number" name="libr_unidades" placeholder="Unidades:" required class="form-control" value="<?php echo $libro[1]; ?>">
+				<input type="number" name="libr_unidades" placeholder="Unidades:" required class="form-control" value="<?php echo $libro[8]; ?>">
 			</div>
 			<div class="form-group">
 				<label for="">Género:</label>
 				<select name="libr_idgenero" id="" class="form-control">
 					<?php 
-						while ($row = pg_fetch_row($categorias)) { 
+						while ($row = pg_fetch_row($categorias)) {
+
+							if ($libro[9] == $row[0]){
+								echo "<option value='$row[0]' selected=''> $row[1] </option>";
+							} 
 
 							echo "<option value='$row[0]'> $row[1] </option>";	
 						}
 					?>
 				</select>
 			</div>
-			<div class="form-group">
-				<label for="">Selecciona una imagen:</label>
-				<input type="file" name="libr_imagen" required>
-			</div>
+			<?php 
+				if (empty($libro[3])){
+					echo "<div class='form-group'><label>Selecciona una imagen:</label><input type='file' name='libr_imagen' required></div>";
+
+				}
+			?>
+			
 			<div class="text-center">
-				<button type="submit" name="enviar" class="btn btn-outline-primary"> Registrar usuario</button>	
+				<button type="submit" name="enviar" class="btn btn-outline-primary"> Actualizar libro</button>	
 			</div>
 		</form><br>
 	</div>
