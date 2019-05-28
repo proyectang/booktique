@@ -87,7 +87,7 @@
 									</div>";	
 						} 
 					}
-					echo "</div>";
+					echo "</div>"; 
 				?>
 				<hr>
 				<?php
