@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700" rel="stylesheet">
+	<link rel="stylesheet" href="../../css/normalize.css">
+	<link rel="stylesheet" href="../../css/registro.css">
+	<link rel="shorcut icon" type="image/x-icon" href="../../img/favicon.ico">
+	<script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+	<title>Registro cliente</title>
+</head>
+<body>
+
+
+	<div class="contenedor">
+    <div class="login-box">
+    	<div class="logo">
+     		<img src="../../img/logo.png" alt="">
+     	</div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+	<form action="../../php/Cliente/registrar_cliente.php" method="post">
+		<input type="text" name="clie_nombre" placeholder="Nombre(s):">
+		<br>
+		<input type="text" name="clie_apellidopaterno" placeholder="Apellido paterno:" required>
+		<br>
+		<input type="text" name="clie_apellidomaterno" placeholder="Apellido materno:" required>
+		<br>
+		<input type="text" name="clie_correo"  placeholder="Correo electrónico:" required>
+		<br>
+		<input type="password" name="clie_contrasenia" placeholder="Contraseña" required>
+		<br>
+        <input type="date" name="clie_fechanacimiento" required>
+        <br>
+		<input type="number" name="clie_telefono" placeholder="Teléfono:" required>
+		<br>
+		<input type="text" name="dire_estado" placeholder="Estado:">
+		<br>
+		<input type="text" name="dire_ciudad" placeholder="Ciudad:">
+		<br>
+		<input type="text" name="dire_calle" placeholder="Calle:">
+		<br>
+		<input type="number" name="dire_codigopostal" placeholder="C.P.">
+		<br>
+		<input type="text" name="dire_delegacion" placeholder="Delegación:">
+		<br>
+		<input type="submit" name="guardar" value="Guardar">
+	</form>
+	
+	</div>
+	</div>
+
+	<div class="registrarse">
+       <a href="login.html">Login</a>
+	</div>
+</body>
+</html>
