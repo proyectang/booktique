@@ -2,6 +2,8 @@
 
 	require_once('../conexionbd.php');
 
+	$libr_idlibro = $_POST['libr_idlibro'];
+
 	$libr_nombre = $_POST["libr_nombre"];
 	$libr_autor = $_POST["libr_autor"];
 	//$libr_imagen = $FILE["libr_imagen"];
@@ -28,7 +30,7 @@
 
 	//if ($comp) {
 
-	    $query = "UPDATE libro SET libr_nombre = '$libr_nombre', libr_autor = '$libr_autor', libr_descripcion = '$libr_descripcion', libr_precio = $libr_precio, libr_estatus = '$libr_estatus', libr_valoracion = '$libr_valoracion', libr_unidades = $libr_unidades, libr_idgenero = $libr_idgenero";
+	    $query = "UPDATE libro SET libr_nombre = '$libr_nombre', libr_autor = '$libr_autor', libr_descripcion = '$libr_descripcion', libr_precio = $libr_precio, libr_estatus = '$libr_estatus', libr_valoracion = '$libr_valoracion', libr_unidades = $libr_unidades, libr_idgenero = $libr_idgenero WHERE libr_idlibro = $libr_idlibro";
 		$result = pg_query($conn, $query) or die (pg_last_error());
 		pg_close($conn);
 

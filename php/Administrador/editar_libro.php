@@ -141,7 +141,7 @@
 
 				}
 			?>
-			
+			<input type="hidden" name="libr_idlibro" value="<?php echo $libro[0]; ?>">
 			<div class="text-center">
 				<button type="submit" name="enviar" class="btn btn-outline-primary"> Actualizar libro</button>	
 			</div>
