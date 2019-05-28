@@ -47,7 +47,7 @@
 								?>
 					        </ul>
 				 	    </li>
-				 	    <li><a href="#novedades">Novedades</a></li>
+				 	    <li><a href="html/quienes_somos.html">Quiénes Somos</a></li>
 					    <li><a href="#contacto">Contacto</a></li>
 					    <li><a  class="micuenta" href="html/Cliente/login.html">Mi Cuenta</a></li>
 					    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
@@ -57,6 +57,50 @@
 
 		</div>
 	</header>
+
+<section class="main">
+			<div class="banner">
+				<img src="img/banner2.png" alt="">
+			</div>
+		
+		<div name="novedades" id="novedades" class="novedades">
+		<h3 class="lmv">Lo más vendido</h3>	
+		<!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+		     
+</div>
+</section>
 
 	<section class="main">
     	
@@ -231,50 +275,7 @@
 
 
 
-	<!--<<section class="main">
-			<div class="banner">
-				<img src="img/banner2.png" alt="">
-			</div>
-		
-		<div name="novedades" id="novedades" class="novedades">
-		<h3 class="lmv">Lo más vendido</h3>	
-		<!-- Swiper --
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" ></div>
-      <div class="swiper-slide" ></div>
-      <div class="swiper-slide" ></div>
-    </div>
-    <!-- Add Pagination --
-    <div class="swiper-pagination"></div>
-  </div>
-
-  <!-- Swiper JS -->
-  <script src="js/swiper.min.js"></script>
-
-  <!-- Initialize Swiper --
-  <script>
-    var swiper = new Swiper('.swiper-container', {
-      effect: 'coverflow',
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 'auto',
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows : true,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    });
-  </script>
-		     
-</div>
-</section>-->
-
+	
 
 	<footer>
 		<section class="contacto">
