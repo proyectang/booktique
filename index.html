@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/stilos.css ">
+	<link rel="shorcut icon" type="image/x-icon" href="img/favicon.ico">
+	<script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+	
+	<title>Booktique</title>
+</head>
+<body>
+	<header>
+		<div class="contenedor">
+ 		<img class="logo" src="../img/logo.png" alt="">
+ 				<div class="buscar-caja">
+   					<input type="search" name="" class="buscar-txt" placeholder="Buscar..."/>
+   					<a class="buscar-btn">
+    					<i class="fas fa-search"></i>
+  					</a>
+  				</div>				
+			
+			<div class="divmenu">
+ 			 	<nav class="navegacion">
+					<ul class="menu">
+				 		<li><a href="#">Generos</a>
+					        <ul class="submenu">
+						         <li><a href="#">Ficción</a></li>
+						         <li><a href="#">Poesía</a></li>
+						         <li><a href="#">Científicos</a></li>
+						         <li><a href="#">Thriller</a></li>
+						         <li><a href="#">Negocios</a></li>
+						         <li><a href="#">Historia</a></li>
+					        </ul>
+				 	    </li>
+				 	    <li><a href="html/quienes_somos.html">Quiénes Somos</a></li>
+					    <li><a href="#contacto">Contacto</a></li>
+					    <li><a  class="micuenta" href="#">Mi Cuenta</a></li>
+					    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+					</ul>
+		    	</nav>
+			</div>
+
+		</div>
+	</header>
+
+
+
+	<section class="main">
+			<div class="banner">
+				<img src="img/banner2.png" alt="">
+			</div>
+		
+		<div name="novedades" id="novedades" class="novedades">
+		<h3 class="lmv">Lo más vendido</h3>	
+		<!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ></div>
+
+
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+		     
+</div>
+</section>
+
+
+	<footer>
+		<section class="contacto">
+			<div name="contacto" id="contacto" class="contenedor">
+				<h3 class="titulo">Contacto</h3>
+				<form class="formulario" action="#" method="post">
+					<input type="text" placeholder="Nombre:" required>
+					<input type="email" placeholder="Correo:" required>
+					<textarea name="mensaje" placeholder="Mensaje:"></textarea>
+					<input class="boton" type="submit" name="Ingresar" value="Enviar">
+				</form>
+			</div>
+		</section>
+		
+		<section class="redes-sociales">
+			<div class="contenedor">
+				<a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+				<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+
+			</div>
+		</section>
+	</footer>
+</body>
+</html>

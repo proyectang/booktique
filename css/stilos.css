@@ -107,7 +107,7 @@ body {
 .buscar-caja {
  position: absolute;
  top: 12%;
- left: 42%;
+ left: 40%;
  transform: translate(-50%, -50%);
  background: #ffff;
  height: 40px;
