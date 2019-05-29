@@ -296,7 +296,7 @@
 		
 		<section class="redes-sociales">
 			<div class="contenedor">
-				<a href="https//twitter.com" class="twitter"><i class="fab fa-twitter"></i></a>
+				<a href="https://twitter.com/@booktique1" class="twitter"><i class="fab fa-twitter"></i></a>
 				<a href="https://facebook.com/booktique.booktique.94" class="facebook"><i class="fab fa-facebook-f"></i></a>
 				<a href="https://instagram.com/booktique.booktique" class="instagram"><i class="fab fa-instagram"></i></a>
 
