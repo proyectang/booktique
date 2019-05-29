@@ -17,7 +17,7 @@
 	
 		<header>
 			<div class="contenedor">
-	 		<a href="index.php"><img class="logo" src="img/logo.png" alt=""></a>
+	 		<a href="index.php"><img class="logo" src="../img/logo.png" alt=""></a>
 	 				<div class="buscar-caja">
 	   					<input type="search" name="" class="buscar-txt" placeholder="Buscar..."/>
 	   					<a class="buscar-btn">
@@ -48,7 +48,7 @@
 									?>
 						        </ul>
 					 	    </li>
-					 	    <li><a href="html/quienes_somos.php">Quiénes Somos</a></li>
+					 	    <li><a href="html/quienes_somos.html">Quiénes Somos</a></li>
 						    <li><a href="#contato">Contacto</a></li>
 						    <li><a  class="micuenta" href="html/Cliente/login.html">Mi Cuenta</a></li>
 						    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
@@ -283,11 +283,12 @@
 
 	<footer>
 		<section class="contacto">
+				
 			<div name="contacto" id="contacto" class="contenedor">
 				<h3 class="titulo">Contacto</h3>
-				<form class="formulario" action="#" method="post">
-					<input type="text" placeholder="Nombre:" required>
-					<input type="email" placeholder="Correo:" required>
+				<form class="formulario" action="php/contacto.php" method="post">
+					<input type="text" name="nombre" placeholder="Nombre:" required>
+					<input type="email" name="email" placeholder="Correo:" required>
 					<textarea name="mensaje" placeholder="Mensaje:"></textarea>
 					<input class="boton" type="submit" name="Ingresar" value="Enviar">
 				</form>
