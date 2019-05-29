@@ -21,12 +21,12 @@
 		$_SESSION['sesion_iniciada'] = true;
 		$_SESSION['id'] = $row[0];
 		$_SESSION['usuario'] = $row[1];
-		header('Location: http://www.booktique.com.mx/html/Administrador/usuarios.php');
+		header('Location: https://www.booktique.com.mx/html/Administrador/usuarios.php');
 
 	} else {
 		//regresar al login.html:
 		session_destroy();
-		header('Location: http://www.booktique.com.mx/html/Administrador/login.html');
+		header('Location: https://www.booktique.com.mx/html/Administrador/login.html');
 	}
 
 
