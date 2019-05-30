@@ -69,7 +69,7 @@
 
 				if($_SESSION['sesion_iniciada'] != true){
 					session_destroy();
-					header('Location: http://www.booktique.com.mx/html/Administrador/login.html');
+					header('Location: https://www.booktique.com.mx/html/Administrador/login.html');
 				}
 			require_once('../../php/conexionbd.php');
 			$query = "SELECT gene_idgenero, gene_nombre FROM genero";

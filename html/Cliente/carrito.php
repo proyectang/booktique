@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700" rel="stylesheet">
 	<link rel="stylesheet" href="../../css/normalize.css">
-	<link rel="stylesheet" href="c../../ss/swiper.min.css">
+	<link rel="stylesheet" href="../../css/swiper.min.css">
 	<link rel="stylesheet" href="../../css/stilos.css ">
 	<link rel="stylesheet" href="../../css/tienda.css">
 	<link rel="shorcut icon" type="image/x-icon" href="../../img/favicon.ico">
@@ -23,7 +23,7 @@
 	
 		<header>
 			<div class="contenedor">
-	 		<a href="index.php"><img class="logo" src="../../img/logo.png" alt=""></a>
+	 		<a href="../../index.php"><img class="logo" src="../../img/logo.png" alt=""></a>
 	 				<div class="buscar-caja">
 	   					<input type="search" name="" class="buscar-txt" placeholder="Buscar..."/>
 	   					<a class="buscar-btn">
@@ -32,7 +32,7 @@
 	  				</div>	
 
 	  				<?php
-	  					require_once('php/conexionbd.php');
+	  					require_once('../../php/conexionbd.php');
 						$query = "SELECT gene_idgenero, gene_nombre FROM genero";
 						$generos = pg_query($conn, $query) or die (pg_last_error());
 
@@ -55,15 +55,17 @@
 						        </ul>
 					 	    </li>
 					 	    <li><a href="html/quienes_somos.html">Quiénes Somos</a></li>
-						    <li><a href="#contato">Contacto</a></li>
+						    <li><a href="#Contacto">Contacto</a></li>
 						    <?php 
 						    	session_start();
-						    	if($_SESSION['sesion_iniciada_cliente']){
-						    		echo "<li><a  class='micuenta'>$_SESSION['cliente']</a></li>";
-						    		echo "<li><a href='html/Cliente/carrito.php'><i class='fas fa-shopping-cart'></i>count($_SESSION['carrito'])</a></li>";
+						    	session_destroy();
+						    	
+						    	if($_SESSION["sesion_iniciada_cliente"]){
+						    		echo '<li><a  class="micuenta">$_SESSION["cliente"]</a></li>';
+						    		echo '<li><a href="html/Cliente/carrito.php" ><i class="fas fa-shopping-cart"></i>count($_SESSION["carrito"])</a></li>';
 						    	} else{
-						    		echo "<li><a  class='micuenta' href='html/Cliente/login.html'>Mi Cuenta</a></li>";
-						    		echo "<li><a><i class='fas fa-shopping-cart'></i></a></li>";
+						    		echo '<li><a class="micuenta" href="html/Cliente/login.php">Mi Cuenta</a></li>';
+						    		echo '<li><a><i class="fas fa-shopping-cart"></i></a></li>';
 						    	}
 
 						    ?>
@@ -91,7 +93,7 @@
 						</thead>
 						<tbody>
 							<?php $total = 0;?>
-							<?php foreach($SESSION['carrito'] as $indice => $libro ) { ?>
+							<?php foreach($_SESSION["carrito"] as $indice => $libro ) { ?>
 							<tr>
 								<td><?php echo $libro['libr_nombre']; ?></td>
 								<td><?php echo $libro['libr_autor']; ?></td>

@@ -35,6 +35,6 @@
 		$_SESSION['carrito'][$numeroLibros] = $libro;
 
 	}
-	header('Location: http://www.booktique.com.mx/index.php');
+	header('Location: https://www.booktique.com.mx/index.php');
 
 ?>

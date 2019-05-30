@@ -40,7 +40,7 @@
 	pg_close($conn);
 
 	if($result){
-		header('Location: http://www.booktique.com.mx/html/Cliente/login.php');
+		header('Location: https://www.booktique.com.mx/html/Cliente/login.php');
 		echo "<div class='alert alert-primary' role='alert'>
 				  Se ha registrado exitosamente el usuario
 				</div>";

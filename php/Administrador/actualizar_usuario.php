@@ -14,7 +14,7 @@ require_once('../conexionbd.php');
 	pg_close($conn);
 
 	if($result){
-		header('Location: http://www.booktique.com.mx/html/Administrador/usuarios.php');
+		header('Location: https://www.booktique.com.mx/html/Administrador/usuarios.php');
 		echo "<div class='alert alert-primary' role='alert'>
 				  Se ha actualizado exitosamente el usuario
 				</div>";

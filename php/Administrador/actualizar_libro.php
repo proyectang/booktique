@@ -36,7 +36,7 @@
 
 		if($result){
 
-			header('Location: http://www.booktique.com.mx/html/Administrador/libros.php');
+			header('Location: https://www.booktique.com.mx/html/Administrador/libros.php');
 		}
 
 	//} else {

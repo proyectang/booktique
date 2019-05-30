@@ -40,7 +40,7 @@
 				<div class="divmenu">
 	 			 	<nav class="navegacion">
 						<ul class="menu">
-					 		<li><a href="#">Generos</a>
+					 		<li><a href="#generos">Generos</a>
 						        <ul class="submenu">
 						        	<?php 
 										while ($row = pg_fetch_row($generos)) { 
@@ -51,14 +51,14 @@
 						        </ul>
 					 	    </li>
 					 	    <li><a href="html/quienes_somos.html">Quiénes Somos</a></li>
-						    <li><a href="#contato">Contacto</a></li>
+						    <li><a  href="#contacto">Contacto</a></li>
 						    <?php 
-						    	if($_SESSION['sesion_iniciada_cliente']){
-						    		echo "<li><a  class='micuenta'>$_SESSION['cliente']</a></li>";
-						    		echo "<li><a href='html/Cliente/carrito.php'><i class='fas fa-shopping-cart'></i>count($_SESSION['carrito'])</a></li>";
-						    	} else{
-						    		echo "<li><a  class='micuenta' href='html/Cliente/login.html'>Mi Cuenta</a></li>";
-						    		echo "<li><a href='html/Cliente/carrito.php'><i class='fas fa-shopping-cart'></i></a></li>";
+						    	if($_SESSION["sesion_iniciada_cliente"]){
+						    		echo '<li><a  class="micuenta">$_SESSION["cliente"]</a></li>';
+						    		echo '<li><a href="html/Cliente/carrito.php"><i class="fas fa-shopping-cart"></i>count($_SESSION["carrito"])</a></li>';
+						    	}else{
+						    		echo '<li><a  class="micuenta" href="html/Cliente/login.php">Mi Cuenta</a></li>';
+						    		echo '<li><a href="html/Cliente/carrito.php"><i class="fas fa-shopping-cart"></i></a></li>';
 						    	}
 
 						    ?>
@@ -120,11 +120,11 @@
 	<section class="main">
     	
 	 <section class="libro">
-			<div class="contenedor">
+			<div name="generos" class="contenedor">
 
 
 				<?php
-					echo "<h3 class='genero'>Ficción</h3>";
+					echo "<h3 name='ficcion' class='genero'>Ficción</h3>";
 					echo "<div class='contenedor-libros'>"; 
 					while ($row = pg_fetch_row($libros)) {
 
@@ -296,7 +296,7 @@
 		<section class="contacto">
 				
 			<div name="contacto" id="contacto" class="contenedor">
-				<h3 class="titulo">Contacto</h3>
+				<h3 name="contacto" class="titulo">Contacto</h3>
 				<form class="formulario" action="php/contacto.php" method="post">
 					<input type="text" name="nombre" placeholder="Nombre:" required>
 					<input type="email" name="email" placeholder="Correo:" required>
@@ -311,6 +311,7 @@
 				<a href="https://twitter.com/@booktique1" class="twitter"><i class="fab fa-twitter"></i></a>
 				<a href="https://facebook.com/booktique.booktique.94" class="facebook"><i class="fab fa-facebook-f"></i></a>
 				<a href="https://instagram.com/booktique.booktique" class="instagram"><i class="fab fa-instagram"></i></a>
+				<div class="admin"><a href="html/Administrador/login.php">Administrador</a></div>
 
 			</div>
 		</section>

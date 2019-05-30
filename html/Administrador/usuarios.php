@@ -20,7 +20,7 @@
 <body>
 	<header>
 		<div class="contenedor">
- 		<img class="logo" src="../../img/logo.png" alt="">
+ 		<a href="../../index.php"><img class="logo" src="../../img/logo.png" alt=""></a>
  				<div class="buscar-caja">
    					<input type="search" name="" class="buscar-txt" placeholder="Buscar..."/>
    					<a class="buscar-btn">
@@ -32,7 +32,7 @@
 
 					if($_SESSION['sesion_iniciada'] != true){
 						session_destroy();
-						header('Location: http://www.booktique.com.mx/html/Administrador/login.html');
+						header('Location: https://www.booktique.com.mx/html/Administrador/login.html');
 					}
 
 					require_once('../../php/conexionbd.php');

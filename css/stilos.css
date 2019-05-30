@@ -264,6 +264,18 @@ footer .redes-sociales a {
 	margin: 0 20px;
 
 }
+
+footer .redes-sociales .admin a {
+	position: absolute;
+ 	left: 90%;
+ 	transform: translate(-50%, -50%);
+	text-align: center;
+	text-decoration: none;
+	font-size:15px; 
+	color: #ffff;
+
+}
+
 footer .redes-sociales .twitter:hover {	background: #1da1f2; }
 footer .redes-sociales .facebook:hover { background: #3b5998; }
 footer .redes-sociales .youtube:hover {	background: #cd201f; }

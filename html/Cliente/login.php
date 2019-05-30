@@ -16,7 +16,7 @@
 	<div class="contenedor">
     <div class="login-box">
     	<div class="logo">
-     		<img src="../../img/logo.png" alt="">
+     		<a href="../../index.php"><img src="../../img/logo.png" alt=""></a>
      	</di>
      	
 	 		<form method="post" action="../../php/Cliente/login.php">

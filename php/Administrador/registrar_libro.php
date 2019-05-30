@@ -16,7 +16,7 @@
 	$libr_imagen = $dir_subida.basename($_FILES["libr_imagen"]["name"]);
 	$temp = $_FILES["libr_imagen"]["tmp_name"];
 
-	$libr_insert = 'http://www.booktique.com.mx/img/libros/'.basename($_FILES["libr_imagen"]["name"]);
+	$libr_insert = 'https://www.booktique.com.mx/img/libros/'.basename($_FILES["libr_imagen"]["name"]);
 
 	$comp = move_uploaded_file($temp, $libr_imagen);
 
@@ -28,7 +28,7 @@
 
 		if($result){
 
-			header('Location: http://www.booktique.com.mx/html/Administrador/libros.php');
+			header('Location: https://www.booktique.com.mx/html/Administrador/libros.php');
 		}
 
 	} else {
