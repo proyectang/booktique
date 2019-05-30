@@ -16,7 +16,7 @@ body{
 	background: url(..//img/login2.jpg);
 	background-repeat: no-repeat; 
 	background-size: cover; 
-	overflow: hidden; 
+	/*overflow: hidden; */
 }
 
 
@@ -102,3 +102,15 @@ body{
 	color: #0583F2;
 
 }
+
+
+
+.login-box .captcha{
+    border-radius: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+    height: 45px;
+    border-color: #000000;
+    text-align: center;
+
+}   
