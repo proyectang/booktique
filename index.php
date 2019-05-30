@@ -55,7 +55,8 @@
 						    <?php 
 						    session_start();
 						    	if($_SESSION["sesion_iniciada_cliente"]){ ?>
-								<li><a class='micuenta'> <?php  $_SESSION['cliente'];?></a></li>
+								<li><a class='micuenta'> <?php echo $_SESSION['cliente']; ?></a></li>
+								<li><a href='html/Cliente/carrito.php'><i class='fas fa-shopping-cart'></i><?php count($_SESSION['carrito']); ?></a></li>
 						    		
 <?php }else{ ?>
 						    		<li><a  class="micuenta" href="html/Cliente/login.php">Mi Cuenta</a></li>
@@ -145,7 +146,6 @@
 						} 
 					}
 					echo "</div>"; 
-					print_r($_SESSION, true);
 				?>
 				<hr>
 				<?php
@@ -163,7 +163,7 @@
 										<div class='descripcion'>
 											<p class='nombre' align='center'>Título: $row[1]</p><p align='center'>Autor: $row[3]</p>
 											<p class='nombre' align='center'>$ $row[2]</p>
-											<form action='php/agregar_carrito.php' method='post'>
+											<form action='php/carrito.php' method='post'>
 												<input type='hidden' name='pedi_idcliente' value='$row[0]'>
 												<input type='hidden' name='libr_idlibro' value='$row[0]'>
 												<button align='center' type='submit'> Agregar al carrito</button>
@@ -190,7 +190,7 @@
 										<div class='descripcion'>
 											<p class='nombre' align='center'>Título: $row[1]</p><p align='center'>Autor: $row[3]</p>
 											<p class='nombre' align='center'>$ $row[2]</p>
-											<form action='php/agregar_carrito.php' method='post'>
+											<form action='php/carrito.php' method='post'>
 												<input type='hidden' name='pedi_idcliente' value='$row[0]'>
 												<input type='hidden' name='libr_idlibro' value='$row[0]'>
 												<button align='center' type='submit'> Agregar al carrito</button>
@@ -217,7 +217,7 @@
 										<div class='descripcion'>
 											<p class='nombre' align='center'>Título: $row[1]</p><p align='center'>Autor: $row[3]</p>
 											<p class='nombre' align='center'>$ $row[2]</p>
-											<form action='php/agregar_carrito.php' method='post'>
+											<form action='php/carrito.php' method='post'>
 												<input type='hidden' name='pedi_idcliente' value='$row[0]'>
 												<input type='hidden' name='libr_idlibro' value='$row[0]'>
 												<button align='center' type='submit'> Agregar al carrito</button>
@@ -244,7 +244,7 @@
 										<div class='descripcion'>
 											<p class='nombre' align='center'>Título: $row[1]</p><p align='center'>Autor: $row[3]</p>
 											<p class='nombre' align='center'>$ $row[2]</p>
-											<form action='php/agregar_carrito.php' method='post'>
+											<form action='php/carrito.php' method='post'>
 												<input type='hidden' name='pedi_idcliente' value='$row[0]'>
 												<input type='hidden' name='libr_idlibro' value='$row[0]'>
 												<button align='center' type='submit'> Agregar al carrito</button>
@@ -271,7 +271,7 @@
 										<div class='descripcion'>
 											<p class='nombre' align='center'>Título: $row[1]</p><p align='center'>Autor: $row[3]</p>
 											<p class='nombre' align='center'>$ $row[2]</p>
-											<form action='php/agregar_carrito.php' method='post'>
+											<form action='php/carrito.php' method='post'>
 												<input type='hidden' name='pedi_idcliente' value='$row[0]'>
 												<input type='hidden' name='libr_idlibro' value='$row[0]'>
 												<button align='center' type='submit'> Agregar al carrito</button>
