@@ -55,14 +55,12 @@
 						    <?php 
 						    session_start();
 						    	if($_SESSION["sesion_iniciada_cliente"]){ ?>
-						    		<li><a class='micuenta'>" . $_SESSION['cliente'] . "</a></li>";
+								<li><a class='micuenta'> <?php  $_SESSION['cliente'];?></a></li>
 						    		
-						    	}else{
-						    		echo '<li><a  class="micuenta" href="html/Cliente/login.php">Mi Cuenta</a></li>';
-						    		echo '<li><a href="html/Cliente/carrito.php"><i class="fas fa-shopping-cart"></i></a></li>';
-						    	}
-
-						    ?>
+<?php }else{ ?>
+						    		<li><a  class="micuenta" href="html/Cliente/login.php">Mi Cuenta</a></li>
+						    		<li><a href="html/Cliente/carrito.php"><i class="fas fa-shopping-cart"></i></a></li>
+						    <?php	}    ?>
 
 						</ul>
 			    	</nav>
