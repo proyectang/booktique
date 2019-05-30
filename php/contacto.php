@@ -7,7 +7,7 @@
 
 	$correo = "Nombre:" . $nombre . "\nCorreo:" . $email . "\nMensaje:" . $mensaje; 
 	mail($destino, "Contacto:", $correo);
-	header("https://www.booktique.com.mx");
+	header("../index.php");
 
 ?>
 

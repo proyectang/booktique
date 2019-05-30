@@ -17,7 +17,7 @@
 			<header>
 			<div class="contenedor">
 	 		<a href="index.php"><img class="logo" src="../img/logo.png" alt=""></a>
-	 				<div class="buscar-caja">
+	 			<!--	<div class="buscar-caja">
 	   					<input type="search" name="" class="buscar-txt" placeholder="Buscar..."/>
 	   					<a class="buscar-btn">
 	    					<i class="fas fa-search"></i>
@@ -32,7 +32,7 @@
 						$query = "SELECT libr_idlibro, libr_nombre, libr_precio, libr_autor, libr_imagen, libr_idgenero FROM libro";
 						$libros = pg_query($conn, $query) or die (pg_last_error());
 
-	  				?>			
+	  				?>	-->		
 				
 				<div class="divmenu">
 	 			 	<nav class="navegacion">

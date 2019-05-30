@@ -18,7 +18,7 @@
 		<header>
 			<div class="contenedor">
 	 		<a href="index.php"><img class="logo" src="../img/logo.png" alt=""></a>
-	 				<div class="buscar-caja">
+	 				<!--div class="buscar-caja">
 	   					<input type="search" name="" class="buscar-txt" placeholder="Buscar..."/>
 	   					<a class="buscar-btn">
 	    					<i class="fas fa-search"></i>
@@ -35,7 +35,7 @@
 
 						session_start();
 
-	  				?>			
+	  				?> -->	
 				
 				<div class="divmenu">
 	 			 	<nav class="navegacion">
@@ -53,9 +53,10 @@
 					 	    <li><a href="html/quienes_somos.html">Quiénes Somos</a></li>
 						    <li><a  href="#contacto">Contacto</a></li>
 						    <?php 
-						    	if($_SESSION["sesion_iniciada_cliente"]){
-						    		echo '<li><a  class="micuenta">$_SESSION["cliente"]</a></li>';
-						    		echo '<li><a href="html/Cliente/carrito.php"><i class="fas fa-shopping-cart"></i>count($_SESSION["carrito"])</a></li>';
+						    session_start();
+						    	if($_SESSION["sesion_iniciada_cliente"]){ ?>
+						    		<li><a class='micuenta'>" . $_SESSION['cliente'] . "</a></li>";
+						    		
 						    	}else{
 						    		echo '<li><a  class="micuenta" href="html/Cliente/login.php">Mi Cuenta</a></li>';
 						    		echo '<li><a href="html/Cliente/carrito.php"><i class="fas fa-shopping-cart"></i></a></li>';
@@ -83,9 +84,9 @@
 		<!-- Swiper -->
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" ></div>
-      <div class="swiper-slide" ></div>
-      <div class="swiper-slide" ></div>
+      <div class="swiper-slide" ><img src="img/carr1.jpeg"></div>
+      <div class="swiper-slide" ><img src="img/carr4.jpeg"></div>
+      <div class="swiper-slide" ><img src="img/carru2.jpeg"></div>
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
