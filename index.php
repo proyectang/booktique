@@ -33,6 +33,8 @@
 						$query = "SELECT libr_idlibro, libr_nombre, libr_precio, libr_autor, libr_imagen, libr_idgenero FROM libro";
 						$libros = pg_query($conn, $query) or die (pg_last_error());
 
+						session_start();
+
 	  				?>			
 				
 				<div class="divmenu">
@@ -50,7 +52,14 @@
 					 	    </li>
 					 	    <li><a href="html/quienes_somos.html">Quiénes Somos</a></li>
 						    <li><a href="#contato">Contacto</a></li>
-						    <li><a  class="micuenta" href="html/Cliente/login.html">Mi Cuenta</a></li>
+						    <?php 
+						    	if($_SESSION['sesion_iniciada_cliente']){
+						    		echo "<li><a  class='micuenta'>$_SESSION['cliente']</a></li>";
+						    	} else{
+						    		echo "<li><a  class='micuenta' href='html/Cliente/login.html'>Mi Cuenta</a></li>";
+						    	}
+
+						    ?>
 						    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
 						</ul>
 			    	</nav>
@@ -127,7 +136,6 @@
 											<p class='nombre' align='center'>Título: $row[1]</p><p align='center'>Autor: $row[3]</p>
 											<p class='nombre' align='center'>$ $row[2]</p>
 											<form action='php/agregar_carrito.php' method='post'>
-												<input type='hidden' name='pedi_idcliente' value='$row[0]'>
 												<input type='hidden' name='libr_idlibro' value='$row[0]'>
 												<button align='center' type='submit'> Agregar al carrito</button>
 											</form>
@@ -136,6 +144,7 @@
 						} 
 					}
 					echo "</div>"; 
+					print_r($_SESSION, true);
 				?>
 				<hr>
 				<?php

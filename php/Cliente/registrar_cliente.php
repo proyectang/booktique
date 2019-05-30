@@ -7,6 +7,7 @@
     $dire_ciudad = $_POST["dire_ciudad"];
     $dire_calle = $_POST["dire_calle"];
     $dire_codigopostal = $_POST["dire_codigopostal"];
+    $dire_colonia = $_POST["dire_colonia"];
     $dire_delegacion = $_POST["dire_delegacion"];
     
 
@@ -23,9 +24,15 @@
 
 
 		//Primero debemos de insertar en la tabla de direcciones
-	 $direccion= "INSERT INTO direccion (dire_estado, dire_ciudad, dire_calle, dire_codigopostal, dire_delegacion) VALUES ('$dire_estado', '$dire_ciudad', '$dire_calle', '$dire_codigopostal', '$dire_delegacion')";
+	 $direccion= "INSERT INTO direccion (dire_estado, dire_ciudad, dire_calle, dire_codigopostal, dire_colonia, dire_delegacion) VALUES ('$dire_estado', '$dire_ciudad', '$dire_calle', '$dire_codigopostal', '$dire_colonia', '$dire_delegacion')";
+	 $result = pg_query($conn, $direccion) or die (pg_last_error());
 
-	$query = "INSERT INTO cliente (clie_nombre, clie_apellidopaterno, clie_apellidomaterno, clie_correo, clie_contrasenia, clie_fechanacimiento, clie_telefono, clie_estatus) VALUES ('$clie_nombre', '$clie_apellidopaterno', '$clie_apellidomaterno', '$clie_correo', '$clie_contrasenia', '$clie_fechanacimiento', '$clie_telefono', '$clie_estatus')";
+	 $Direccion = "SELECT max(dire_iddireccion) FROM direccion";
+	 $result = pg_query($conn, $Direccion) or die (pg_last_error());
+
+	 $idDireccion = pg_fetch_row($result);
+
+	$query = "INSERT INTO cliente (clie_nombre, clie_apellidopaterno, clie_apellidomaterno, clie_correo, clie_contrasenia, clie_fechanacimiento, clie_telefono, clie_estatus, clie_iddireccion) VALUES ('$clie_nombre', '$clie_apellidopaterno', '$clie_apellidomaterno', '$clie_correo', '$clie_contrasenia', '$clie_fechanacimiento', '$clie_telefono', '$clie_estatus', $idDireccion[0])";
 
 	
 
@@ -33,7 +40,7 @@
 	pg_close($conn);
 
 	if($result){
-		header('Location: https://www.booktique.com.mx/html/Administrador/usuarios.php');
+		header('Location: http://www.booktique.com.mx/html/Cliente/login.php');
 		echo "<div class='alert alert-primary' role='alert'>
 				  Se ha registrado exitosamente el usuario
 				</div>";

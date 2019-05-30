@@ -1,5 +1,5 @@
 
-CREATE DATABASE bookstore ;
+CREATE DATABASE booktique_db ;
 
 CREATE TABLE usuario(
 	usua_idusuario SERIAL NOT NULL,
