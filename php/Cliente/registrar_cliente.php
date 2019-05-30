@@ -2,15 +2,38 @@
 
 	require_once('../conexionbd.php');
 
-		//Primero debemos de insertar en la tabla de direcciones
-	$direccion = "INSERT INTO usuario (usua_nombre, usua_contrasenia, usua_estatus, usua_tipo) VALUES ('$usua_nombre', '$usua_contrasenia', '$usua_estatus', '$usua_tipo')";
+	//valores
+    $dire_estado = $_POST["dire_estado"]; 
+    $dire_ciudad = $_POST["dire_ciudad"];
+    $dire_calle = $_POST["dire_calle"];
+    $dire_codigopostal = $_POST["dire_codigopostal"];
+    $dire_delegacion = $_POST["dire_delegacion"];
+    
 
-	$query = "INSERT INTO usuario (usua_nombre, usua_contrasenia, usua_estatus, usua_tipo) VALUES ('$usua_nombre', '$usua_contrasenia', '$usua_estatus', '$usua_tipo')";
+    $clie_nombre = $_POST["clie_nombre"];
+    $clie_apellidopaterno = $_POST["clie_apellidopaterno"];
+    $clie_apellidomaterno = $_POST["clie_apellidomaterno"];
+    $clie_correo = $_POST["clie_correo"];
+	$clie_contrasenia = md5($_POST["clie_contrasenia"]);
+    $clie_fechanacimiento = $_POST["clie_fechanacimiento"];
+    $clie_telefono = $_POST["clie_telefono"];
+    $clie_estatus = $_POST["clie_estatus"];
+
+
+
+
+		//Primero debemos de insertar en la tabla de direcciones
+	 $direccion= "INSERT INTO direccion (dire_estado, dire_ciudad, dire_calle, dire_codigopostal, dire_delegacion) VALUES ('$dire_estado', '$dire_ciudad', '$dire_calle', '$dire_codigopostal', '$dire_delegacion')";
+
+	$query = "INSERT INTO cliente (clie_nombre, clie_apellidopaterno, clie_apellidomaterno, clie_correo, clie_contrasenia, clie_fechanacimiento, clie_telefono, clie_estatus) VALUES ('$clie_nombre', '$clie_apellidopaterno', '$clie_apellidomaterno', '$clie_correo', '$clie_contrasenia', '$clie_fechanacimiento', '$clie_telefono', '$clie_estatus')";
+
+	
+
 	$result = pg_query($conn, $query) or die (pg_last_error());
 	pg_close($conn);
 
 	if($result){
-		header('Location: http://www.booktique.com.mx/html/Administrador/usuarios.php');
+		header('Location: https://www.booktique.com.mx/html/Administrador/usuarios.php');
 		echo "<div class='alert alert-primary' role='alert'>
 				  Se ha registrado exitosamente el usuario
 				</div>";
