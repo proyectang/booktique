@@ -55,12 +55,14 @@
 						    <?php 
 						    	if($_SESSION['sesion_iniciada_cliente']){
 						    		echo "<li><a  class='micuenta'>$_SESSION['cliente']</a></li>";
+						    		echo "<li><a href='html/Cliente/carrito.php'><i class='fas fa-shopping-cart'></i>count($_SESSION['carrito'])</a></li>";
 						    	} else{
 						    		echo "<li><a  class='micuenta' href='html/Cliente/login.html'>Mi Cuenta</a></li>";
+						    		echo "<li><a href='html/Cliente/carrito.php'><i class='fas fa-shopping-cart'></i></a></li>";
 						    	}
 
 						    ?>
-						    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+
 						</ul>
 			    	</nav>
 				</div>
@@ -135,7 +137,7 @@
 										<div class='descripcion'>
 											<p class='nombre' align='center'>Título: $row[1]</p><p align='center'>Autor: $row[3]</p>
 											<p class='nombre' align='center'>$ $row[2]</p>
-											<form action='php/agregar_carrito.php' method='post'>
+											<form action='php/Cliente/carrito.php' method='post'>
 												<input type='hidden' name='libr_idlibro' value='$row[0]'>
 												<button align='center' type='submit'> Agregar al carrito</button>
 											</form>
