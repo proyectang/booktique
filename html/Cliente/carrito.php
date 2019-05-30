@@ -24,12 +24,12 @@
 		<header>
 			<div class="contenedor">
 	 		<a href="../../index.php"><img class="logo" src="../../img/logo.png" alt=""></a>
-	 				<div class="buscar-caja">
+	 				<!--<div class="buscar-caja">
 	   					<input type="search" name="" class="buscar-txt" placeholder="Buscar..."/>
 	   					<a class="buscar-btn">
 	    					<i class="fas fa-search"></i>
 	  					</a>
-	  				</div>	
+	  				</div>	-->
 
 	  				<?php
 	  					require_once('../../php/conexionbd.php');
@@ -56,31 +56,32 @@
 					 	    </li>
 					 	    <li><a href="html/quienes_somos.html">Quiénes Somos</a></li>
 						    <li><a href="#Contacto">Contacto</a></li>
-						    <?php 
-						    	session_start();
-						    	session_destroy();
-						    	
-						    	if($_SESSION["sesion_iniciada_cliente"]){
-						    		echo '<li><a  class="micuenta">$_SESSION["cliente"]</a></li>';
-						    		echo '<li><a href="html/Cliente/carrito.php" ><i class="fas fa-shopping-cart"></i>count($_SESSION["carrito"])</a></li>';
-						    	} else{
-						    		echo '<li><a class="micuenta" href="html/Cliente/login.php">Mi Cuenta</a></li>';
-						    		echo '<li><a><i class="fas fa-shopping-cart"></i></a></li>';
-						    	}
+						   						    <?php 
+						    session_start();
+						    	if($_SESSION["sesion_iniciada_cliente"]){ ?>
+								<li><a class='micuenta'> <?php echo $_SESSION['cliente']; ?></a></li>
+								<li><a href='html/Cliente/carrito.php'><i class='fas fa-shopping-cart'></i><?php echo count($_SESSION['carrito']); ?></a></li>
+						    		
+<?php }else{ ?>
+						    		<li><a  class="micuenta" href="html/Cliente/login.php">Mi Cuenta</a></li>
+						    		<li><a href="html/Cliente/carrito.php"><i class="fas fa-shopping-cart"></i></a></li>
+						    <?php	}    ?>
 
-						    ?>
+
 
 						</ul>
 			    	</nav>
 				</div>
 
 			</div>
-		</header>
+		</header><br><br><br>
 
 
 	<section class="main">
 		<div class="col-md-10 offset-md-1">
-			<?php if(empty($_SESSION['carrito'])) {  ?>
+			<?php 
+				session_start();
+			if(!empty($_SESSION['carrito'])) {  ?>
 			<div class="table-responsive">
 				<table class="table table-hover">
 					<thead class="thead-light  table-active text-center">
@@ -118,38 +119,9 @@
 				<?php } ?>
 			</div>
 		</section>
-
-
-				<?php
-					echo "<h3 class='genero'>Carrito de compras</h3>";
-					echo "<div class='contenedor-libros'>"; 
-					while ($row = pg_fetch_row($libros)) {
-
-						if ($row[5] == 1) {
-	
-							echo "<div class='indlibro'>
-										<div class='thumb'>
-											<img src='$row[4]' alt='$row[1]'>
-										</div>
-										<div class='descripcion'>
-											<p class='nombre' align='center'>Título: $row[1]</p><p align='center'>Autor: $row[3]</p>
-											<p class='nombre' align='center'>$ $row[2]</p>
-											<form action='php/Cliente/carrito.php' method='post'>
-												<input type='hidden' name='libr_idlibro' value='$row[0]'>
-												<button align='center' type='submit'> Agregar al carrito</button>
-											</form>
-										</div>
-									</div>";	
-						} 
-					}
-					echo "</div>"; 
-					print_r($_SESSION, true);
-				?>
-				<hr>
-				</div>
-			</section>
-		</section>
-
+		<div class="col-md-2 offset-md-5">
+			<a href="../compra_exitosa.html" class="btn btn-outline-info" >Confirmar compra</a>
+		</div><br>
 
 
 	
