@@ -4,6 +4,6 @@
     setcookie(session_name(), 0, 1 , ini_get("session.cookie_path"));    // Eliminar la cookie
     session_destroy();  
 
-    header('Location: https://www.booktique.com.mx/html/Administrador/login.html');
+    header('Location: https://www.booktique.com.mx');
 
 ?>

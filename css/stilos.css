@@ -297,3 +297,28 @@ footer .redes-sociales .instagram:hover { background: #3f729b; }
       height: 200px;
       background: #262626;
     }
+/*-----------------------------------------SUBMENU CUENTA----------------------------------*/
+.submenuusu{
+
+	right: 200px;
+	position: absolute;
+	background: #ffff;
+	width: 12%;
+	visibility: hidden;/*esconde el submenu*/
+	opacity: 0;
+	transition: opacity 1.5s;
+}
+
+.submenuusu li a{
+	text-align: left;
+	display: block;
+	padding: 12px;
+	color: #0583F2;
+	font-family: 'Open sans';
+	text-decoration: none;
+}
+
+.menu li:hover .submenuusu{
+	visibility: visible;
+	opacity: 1;
+}

@@ -1,18 +1,18 @@
 <?php 
-
 	session_start();
 
+	var_dump($_POST);
 	$libro_id = $_POST['libr_idlibro'];
-	
+	echo "ID: ".$libro_id;
 
 	require_once('../conexionbd.php');
-	$query = "SELECT libr_nombre, libr_autor, libr_precio, libr_imagen, libr_descripcion FROM libro WHERE libr_idlibro = $libro_id";
+	$query = "SELECT libr_nombre, libr_autor, libr_precio, libr_imagen, libr_descripcion FROM libro WHERE libr_idlibro =".$libro_id;
 	$result = pg_query($conn, $query);
 	$libro = pg_fetch_row($result);
 	pg_close($conn);
 
 	if(!isset($_SESSION['carrito'])){
-			$libro = $array(
+			$libro = array(
 				'id_libro' => $libro_id,
 				'libr_nombre' => $libro[0],
 				'libr_autor' => $libro[1],
@@ -24,7 +24,7 @@
 
 	} else {
 		$numeroLibros = count($_SESSION['carrito']);
-		$libro = $array(
+		$libro = array(
 				'id_libro' => $libro_id,
 				'libr_nombre' => $libro[0],
 				'libr_autor' => $libro[1],

@@ -45,7 +45,7 @@
  			 	<nav class="navegacion">
  			 		<ul class="menu">
 				 		<li><a href="#"><?php session_start(); echo "<span class='far fa-user'></span> ". $_SESSION['usuario']; ?></a>
-					        <ul class="submenu">
+					        <ul class="submenuusu">
 						         <li><a href="../../php/cerrar_session.php">Salir</a></li>
 					        </ul>
 				 	    </li>
